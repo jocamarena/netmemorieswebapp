@@ -1,13 +1,16 @@
-﻿using WebApplication1.Models;
+﻿using WebApplication1.Data;
+using WebApplication1.Models;
 using WebApplication1.Repository.IRepository;
 
 namespace WebApplication1.Repository
 {
-    public class MemoryRepository : IMemoryRepository, IRepository<Memory>
+    public class MemoryRepository : Repository<Memory>, IMemoryRepository
     {
-        public ICollection<Memory> GetAll()
+        private readonly ApplicationDBContext _context;
+        public MemoryRepository(ApplicationDBContext context) : base(context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
+
     }
 }
