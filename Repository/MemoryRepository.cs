@@ -12,5 +12,14 @@ namespace WebApplication1.Repository
             _context = context;
         }
 
+        public int Save()
+        {
+            return _context.SaveChanges();
+        }
+
+        public void Update(Memory memory)
+        {
+            _context.Update(memory);
+        }
     }
 }

@@ -1,0 +1,45 @@
+﻿@model ICollection<Memory>
+@{
+    ViewData["Title"] = "Memory";
+}
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-success border p-4"
+       <div class="row">
+        <div class="col-12 text-center">
+            <h2>Memories</h2>
+        </div>
+       </div>
+    </div>
+    <div class="card-body border p-4">
+        <div class="row">
+            <div class="col-12">
+                <a asp-controller="Memory" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i>Create</a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>MemoryID</th>
+                    <th>AuthorID</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var memory in Model)
+                {
+                    <tr>
+                        <td>@memory.ID</td>
+                        <td>@memory.AuthorID</td>
+                        <td>@memory.Description</td>
+                        <td>@memory.Date</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
